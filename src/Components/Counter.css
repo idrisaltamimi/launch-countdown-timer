@@ -11,15 +11,19 @@
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  /* animation: rotate 2s linear; */
-  /* transform: rotateX(0deg); */
 }
 
-.number {
+.time {
+  position: relative;
   width: 70px;
-  height: 71px;
+  height: 70px;
+
   color: #FB5E84;
   background-color: #191A23;
+  background-color: #343650;
+  box-shadow: 0 10px 0 0 #191A23;
+  border-radius: 4px;
+
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
@@ -29,9 +33,57 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
-.time {
+.matrix-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 33.47px;
+  display: flex;
+  flex-direction: column;
+}
+
+.matrix-container::after,
+.matrix-container::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  height: 6px;
+  width: 6px;
+  background-color: #191A23;
+  border-radius: 50%;
+}
+
+.matrix-container::after {
+  right: 0;
+  transform: translate(50%, 50%);
+}
+
+.matrix-container::before {
+  left: 0;
+  transform: translate(-50%, 50%);
+}
+
+.matrix {
+  width: 100%;
+  height: calc(100% - .47px);
+  background: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.15;
+  border-radius: 0px 0px 4px 4px;
+  transform: matrix(1, 0, 0, -1, 0, 0);
+}
+
+hr {
+  border: 0;
+  border-bottom: .47px solid #000000;
+  opacity: .25;
+}
+
+.period {
   font-style: normal;
   font-weight: 700;
   font-size: 7px;
@@ -40,12 +92,6 @@
   text-transform: uppercase;
   letter-spacing: 2.95937px;
   color: #8385A9;
-}
-
-@keyframes rotate {
-  to {
-    transform: rotateX(180deg) rotateZ(180deg);
-  }
 }
 
 @media (min-width: 376px) {
@@ -57,15 +103,35 @@
     max-width: 148px;
   }
 
-  .number {
-    height: 150px;
+  .time {
+    height: 140px;
     width: 148px;
     font-size: 80px;
     line-height: 71px;
     letter-spacing: -2.4px;
+    border-radius: 8px;
   }
 
-  .time {
+  .matrix-container {
+    height: 71px;
+    border-radius: 0px 0px 8px 8px;
+  }
+
+  .matrix {
+    height: calc(100% - 1px);
+  }
+
+  hr {
+    border-bottom: 1px solid #000000;
+  }
+
+  .matrix-container::after,
+  .matrix-container::before {
+    height: 12px;
+    width: 12px;
+  }
+
+  .period {
     font-size: 14px;
     line-height: 19px;
     letter-spacing: 5.91875px;

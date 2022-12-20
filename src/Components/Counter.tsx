@@ -10,10 +10,14 @@ export default function Counter({ period, time }: Props) {
 
   return (
     <div className='counter'>
-      <div className='number'>
+      <div className='time'>
         {('0' + time).slice(-2)}
+        <div className='matrix-container'>
+          <div className='matrix' />
+          <hr />
+        </div>
       </div>
-      <p className='time'>{period}</p>
+      <p className='period'>{period}</p>
     </div>
   )
 }
