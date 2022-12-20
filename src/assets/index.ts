@@ -1,0 +1,6 @@
+export { default as facebook } from './icon-facebook.svg'
+export { default as instagram } from './icon-instagram.svg'
+export { default as pinterest } from './icon-pinterest.svg'
+export { default as facebookHover } from './icon-facebook-hover.svg'
+export { default as instagramHover } from './icon-instagram-hover.svg'
+export { default as pinterestHover } from './icon-pinterest-hover.svg'
